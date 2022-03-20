@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Search the Source Code</title>
+
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Crawl and search the source code of a website for a particular code snippet."
+    />
+    <meta name="author" content="Jamie Evawin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/styles/output.css" />
+  </head>
+
+  <body>
+    <div class="container mx-auto px-4 prose">
+      <div class="text-center">
+        <h1 class="text-3xl my-4">Search the Source Code</h1>
+        <p>
+          Crawl and search the source code of a website for a particular code
+          snippet.
+        </p>
+        <p class="text-red-500 my-4">
+          Alpha release. Expect bugs.
+          <a
+            class="pb-1 border-b-2 border-red-500"
+            href="https://github.com/jamiegoodwin/searchthesourcecode"
+            target="_blank"
+            >It's on GitHub.</a
+          >
+        </p>
+
+        <form name="search">
+          <input
+            class="my-2 block mx-auto w-full lowercase"
+            autocomplete="off"
+            autocapitalize="off"
+            type="text"
+            name="domain"
+            placeholder="Domain to search"
+          />
+          <textarea
+            class="my-2 block mx-auto w-full"
+            autocomplete="off"
+            autocapitalize="off"
+            name="query"
+            placeholder="Code to search for, e.g.:&#13;&#10;&#13;&#10;<!DOCTYPE html>&#13;&#10;&#13;&#10;or&#13;&#10;&#13;&#10;$(document).ready(function(){"
+            rows="10"
+          ></textarea>
+          <input
+            class="bg-green-600 shadow-sm rounded-sm px-4 py-2 text-white mb-2"
+            id="submit"
+            type="submit"
+            value="Search"
+          />
+        </form>
+      </div>
+
+      <hr />
+
+      <!-- Loading icon -->
+      <div class="loader"></div>
+
+      <!-- Pages searched, pages with results, total results, etc. -->
+      <div class="stats">
+        <!-- Total pages -->
+        <div class="tpg">
+          <h4>Searched</h4>
+          <h3 data-tpg></h3>
+          <h4>pages</h4>
+        </div>
+
+        <!-- Total results -->
+        <div class="tot">
+          <h4>Found</h4>
+          <h3 data-tot></h3>
+          <h4>results</h4>
+        </div>
+
+        <!-- Results pages -->
+        <div class="rpg">
+          <h4>On</h4>
+          <h3 data-rpg></h3>
+          <h4>pages</h4>
+        </div>
+      </div>
+      <div class="results"></div>
+    </div>
+    <footer class="center">
+      <a
+        href="https://jamiegoodwin.uk/?utm_campaign=Development&utm_source=searchthesourcecode.com"
+        target="_blank"
+        ><img src="me-circle.png" height="40" width="40"
+      /></a>
+      <p>
+        Built with <span class="love">&hearts;</span> and &copy; 2017 by
+        <a
+          href="https://jamiegoodwin.uk/?utm_campaign=Development&utm_source=searchthesourcecode.com"
+          target="_blank"
+          >Jamie Goodwin</a
+        >
+      </p>
+    </footer>
+
+    <!-- JS -->
+    <script>
+      "use strict";
+
+      // $global variabiles
+      var $sch = document.getElementsByName("search")[0],
+        $spt = document.createElement("script"),
+        $hed = document.getElementsByTagName("head")[0],
+        $scr = document.body,
+        $dmn = document.getElementsByName("domain")[0],
+        $qry = document.getElementsByName("query")[0],
+        $sbt = document.getElementById("submit"),
+        $ldr = document.getElementsByClassName("loader")[0],
+        $res = document.getElementsByClassName("results")[0],
+        $sts = document.getElementsByClassName("stats")[0],
+        $tot = document.querySelectorAll("[data-tot]")[0],
+        $rpg = document.querySelectorAll("[data-rpg]")[0],
+        $tpg = document.querySelectorAll("[data-tpg]")[0],
+        $url = "https://search-the-source-code.herokuapp.com/";
+
+      $sch.onsubmit = function () {
+        // Show loading
+        status(1);
+
+        // TODO fetch()
+        $spt.src = $url + "?domain=" + $dmn.value + "&search=" + $qry.value;
+        $hed.appendChild($spt);
+
+        return false;
+      };
+
+      function stsc(res) {
+        // Disable loading
+        status(0);
+
+        // Local variables
+        var results = JSON.parse(res),
+          out = "<ul>",
+          tot = 0,
+          tpg = 0,
+          rpg = 0;
+
+        // Build HTML results
+        for (var url in results) {
+          if (results.hasOwnProperty(url)) {
+            // Increment total searched pages
+            tpg++;
+
+            if (results[url].length > 0) {
+              // Add 1 page to results pages
+              rpg++;
+
+              // Add number of results to total
+              tot += results[url].length;
+
+              // Build list
+              out +=
+                '<li><a target="_blank" href="' +
+                url +
+                '">' +
+                url +
+                "</a><span>Chars: " +
+                results[url].join(", ") +
+                "</span>";
+            }
+          }
+        }
+
+        // Fill results div
+        out += "</ul>";
+        $res.innerHTML = out;
+        $tpg.innerHTML = tpg;
+        $rpg.innerHTML = rpg;
+        $tot.innerHTML = tot;
+
+        scrollTo($scr, $sts.offsetTop, 500);
+      }
+
+      function status(status) {
+        if (status === 0) {
+          // Enable the form, search complete
+          $sbt.removeAttribute("disabled");
+          $ldr.style.display = "none";
+
+          // Show results
+          $sts.style.display = "block";
+          $res.style.display = "block";
+        } else {
+          // Disable form, show we're searching
+          $sbt.setAttribute("disabled", "true");
+          $ldr.style.display = "block";
+
+          // Hide results
+          $sts.style.display = "none";
+          $res.style.display = "none";
+        }
+      }
+
+      function scrollTo(element, to, duration) {
+        if (duration <= 0) return;
+        var difference = to - element.scrollTop;
+        var perTick = (difference / duration) * 10;
+
+        setTimeout(function () {
+          element.scrollTop = element.scrollTop + perTick;
+          if (element.scrollTop === to) return;
+          scrollTo(element, to, duration - 10);
+        }, 10);
+      }
+    </script>
+  </body>
+</html>

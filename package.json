@@ -1,0 +1,31 @@
+{
+  "name": "searchthesourcecode.com",
+  "version": "1.0.0",
+  "description": "Front end for searchthesourcecode",
+  "main": "index.js",
+  "scripts": {
+    "build_css": "npx tailwindcss -i ./_src/styles/input.css -o ./_dist/styles/output.css",
+    "build_html": "cp ./_src/index.html ./_dist/index.html",
+    "watch_css": "npx tailwindcss -i ./_src/styles/input.css -o ./_dist/styles/output.css --watch",
+    "build": "npm run build_css",
+    "develop": "npm run watch_css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jevawin/searchthesourcecode.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jevawin/searchthesourcecode.com/issues"
+  },
+  "homepage": "https://github.com/jevawin/searchthesourcecode.com#readme",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.0",
+    "localhost": "^0.3.4",
+    "posthtml": "^0.16.6",
+    "posthtml-inline-assets": "^3.1.0",
+    "posthtml-minify-classnames": "^0.3.0",
+    "tailwindcss": "^3.0.23"
+  }
+}
