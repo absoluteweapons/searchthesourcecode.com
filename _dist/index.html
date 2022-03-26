@@ -15,7 +15,7 @@
       rel="preconnect"
       href="https://search-the-source-code.herokuapp.com/"
     />
-    <link rel="stylesheet" href="/styles/output.css" />
+    <link rel="stylesheet" href="styles/output.css" />
   </head>
 
   <body>
@@ -36,51 +36,166 @@
           >
         </p>
 
-        <form name="search">
-          <input
-            class="my-2 block mx-auto w-full lowercase"
-            autocomplete="off"
-            autocapitalize="off"
-            type="text"
-            name="domain"
-            placeholder="Domain to search"
-          />
-          <textarea
-            class="my-2 block mx-auto w-full"
-            autocomplete="off"
-            autocapitalize="off"
-            name="query"
-            placeholder="Code to search for, e.g.:&#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;or&#13;&#10;&#13;&#10;$(document).ready(function(){"
-            rows="10"
-          ></textarea>
-          <input
-            class="bg-green-600 shadow-sm rounded-sm px-4 py-2 text-white mb-2"
+        <form name="search" class="text-left">
+          <div>
+            <label for="domain">Domain to search</label>
+            <input
+              class="my-2 block mx-auto w-full lowercase"
+              autocomplete="off"
+              autocapitalize="off"
+              type="text"
+              name="domain"
+              placeholder="e.g. jamie.evawin.uk"
+              id="domain"
+              value="jamie.evawin.uk"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="query">Code to search for</label>
+            <textarea
+              class="my-2 block mx-auto w-full"
+              autocomplete="off"
+              autocapitalize="off"
+              name="query"
+              rows="10"
+              id="query"
+              placeholder="e.g.&#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;or&#13;&#10;&#13;&#10;$(document).ready(function(){"
+            >div</textarea>
+          </div>
+
+          <button
+            class="relative bg-green-600 shadow-sm rounded-sm px-4 py-2 text-white mb-2 motion-safe:transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 hov:after:absolute hov:after:[inset-block-end:0] hov:after:[inset-inline-start:0] hov:after:[inline-size:100%] hov:after:[block-size:100%] hov:after:bg-green-700 hov:after:rounded-sm hov:after:transition-transform hov:after:duration-200 hov:after:-z-10 hov:hover:after:translate-x-0.5 hov:hover:after:translate-y-0.5"
             id="submit"
             type="submit"
-            value="Search"
-          />
+          >Search</button>
         </form>
       </div>
 
       <hr class="my-6" />
 
       <!-- pages searched, pages with results, total results, etc. -->
-      <div class="flex">
-        <!-- TODO this -->
-      </div>
+      <div data-results class="relative overflow-x-auto rounded border border-gray-200"></div>
     </div>
-    <footer class="text-center mt-6 mb-4">
-      <a class="inline-block" href="https://jamie.evawin.uk/" target="_blank"
-        ><img
-          class="rounded-full shadow-sm"
-          src="https://en.gravatar.com/userimage/191194893/aae9a83120d84bc54587915f6bee323a.jpg?size=80"
-          height="40"
-          width="40"
-      /></a>
+
+    <footer class="text-center mt-6 mb-4 px-4">
       <p>
-        Built with <span class="text-red-500 motion-safe:animate-bounce inline-block">&hearts;</span> by
-        <a class="pb-1 border-b-2 border-red-500 text-red-500" href="https://jamie.evawin.uk/" target="_blank">Jamie Evawin</a>
+        Built with
+        <span aria-hidden="true" class="text-red-500 motion-safe:animate-bounce inline-block">&hearts;</span>
+        <span class="sr-only">love</span>
+        by
+        <a href="https://jamie.evawin.uk/" target="_blank">
+          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://en.gravatar.com/userimage/191194893/aae9a83120d84bc54587915f6bee323a.jpg?size=80" height="40" width="40" />&nbsp;<span class="text-red-600 border-b-2 border-red-600">Jamie Evawin</span>
+        </a>
+        and
+        <a href="https://allexclapperton.co.uk/" target="_blank">
+          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://media-exp1.licdn.com/dms/image/C4D03AQGZnZ216DSXVw/profile-displayphoto-shrink_200_200/0/1605462306969?e=1653523200&v=beta&t=CiCyfwgA_cVZccKAZd6j5IfJcH7Hj5yZWqDKrIy4LO4" height="40" width="40" />&nbsp;<span class="text-red-600 border-b-2 border-red-600">Alex Clapperton</span>
+        </a>        
       </p>
     </footer>
+    <script>
+      "use strict";
+
+      // global variabiles
+      const holder = document.querySelector("[data-results]");
+      const form = document.querySelector('[name="search"]');
+      const domain = form.querySelector('[name="domain"]');
+      const query = form.querySelector('[name="query"]');
+      const button = form.querySelector('[type="submit"]');
+      const endpoint = "https://search-the-source-code.herokuapp.com/";
+
+      function renderDesktopTable(results) {
+        let output = "";
+
+        results.forEach((result) => {
+          if (result.count > 0) {
+            output += `
+              <tr class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4">${result.count}</td>
+                <td class="px-6 py-4">
+                  <a href="${result.url}" target="_blank" class="text-blue-600 dark:text-blue-500">${result.url}</a>
+                </td>
+              </tr>
+            `;
+          }
+        });
+
+        const html = `
+          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th class="px-6 py-3">Matches</th>
+                <th class="px-6 py-3">URL</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              ${output}
+            </tbody>
+          </table>
+        `
+
+        holder.innerHTML = html;
+      }
+
+      function renderMobileTable(results) {
+        let output = "";
+
+        results.forEach((result) => {
+          if (result.count > 0) {
+            output += `
+              <tr>
+                <th>Matches</th>
+                <td>${result.count}</td>
+              </tr>
+              <tr>
+                <th>Lines</th>
+                <td>${result.matches}</td>
+              </tr>
+              <tr>
+                <th>URL</th>
+                <td>
+                  <a href="${result.url}" target="_blank">${result.url}</a>
+                </td>
+              </tr>
+            `;
+          }
+        });
+
+        const html = `
+          <table>            
+            <tbody>
+              ${output}
+            </tbody>
+          </table>
+        `
+
+        holder.innerHTML = html;
+      }
+      
+      function showResults(results) {
+        button.textContent = "Search";
+        button.classList.remove("pointer-events-none");
+
+        if (window.innerWidth >= 500) return renderDesktopTable(results);
+
+        return renderMobileTable(results);
+      }
+
+      function handleFormSubmission(event) {
+        event.preventDefault();
+
+        const url = `${endpoint}?domain=${domain.value}&search=${query.value}`;
+
+        button.textContent = "Searching...";
+        button.classList.add("pointer-events-none");
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => showResults(data));
+      }
+
+      form.addEventListener('submit', handleFormSubmission);
+    </script>
   </body>
 </html>

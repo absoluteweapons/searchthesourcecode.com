@@ -17,5 +17,10 @@ form.onsubmit = function () {
 };
 
 const showResults = results => {
-  
+  const holder = document.querySelector("[data-results]");
+  let output = "";
+  results.forEach(result => {
+    if (url.count > 0) output += `<span>${result.count}</span><span>${result.matches}</span><span>${result.url}}</span>`;
+  });
+  holder.innerHTML = output;
 }
