@@ -1,2 +1,8 @@
-.DS_Store
+# dependencies
 node_modules
+
+# misc
+[Tt]humbs.db
+.DS_Store
+.dccache
+npm-debug.log*
