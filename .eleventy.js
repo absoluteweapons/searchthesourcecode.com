@@ -6,7 +6,9 @@ module.exports = config => {
   config.addWatchTarget('_src/styles/tailwind.css');
 
   // favicon
-  config.addPassthroughCopy({"_src/images": "images" });
+  config.addPassthroughCopy({ '_src/favicons': 'favicons' });
+  config.addPassthroughCopy({ '_src/site.webmanifest': 'site.webmanifest' });
+  config.addPassthroughCopy({ '_src/browserconfig.xml': 'browserconfig.xml' });
 
   if (prod) {
     config.addTransform('htmlmin', htmlMin);
