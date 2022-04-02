@@ -17,7 +17,18 @@
     "type": "git",
     "url": "git+https://github.com/jevawin/searchthesourcecode.com.git"
   },
-  "author": "",
+  "contributors": [
+    {
+      "name": "Alex Clapperton",
+      "email": "hi@alexclapperton.co.uk",
+      "url": "https://alexclapperton.co.uk"
+    },
+    {
+      "name": "Jamie Evawin",
+      "email": "iamjevawin@gmail.com",
+      "url": "https://jevawin.com"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jevawin/searchthesourcecode.com/issues"
