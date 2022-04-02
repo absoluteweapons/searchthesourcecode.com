@@ -13,6 +13,7 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
 
     input.setAttribute('aria-describedby', `${inputId}Describe`);
     input.classList.add('border-red-500');
+    input.classList.remove('border-gray-300');
     input.classList.remove('border-lime-500');
     input.nextElementSibling?.removeAttribute('hidden');
   }
@@ -20,6 +21,7 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
   function setValidInputState(input: HTMLInputElement | HTMLTextAreaElement) {
     input.removeAttribute('aria-describedby');
     input.classList.remove('border-red-500');
+    input.classList.remove('border-gray-300');
     input.classList.add('border-lime-500');
     input.nextElementSibling?.setAttribute('hidden', 'true');
   }
