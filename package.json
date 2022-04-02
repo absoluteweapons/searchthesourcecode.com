@@ -7,10 +7,13 @@
     "clean": "rimraf dist",
     "start": "npm run dev",
     "dev": "run-p webpack:dev eleventy:dev",
+    "preview": "npm run clean && run-p webpack:preview eleventy:preview",
     "build": "npm run clean && run-s webpack:prod eleventy:prod",
     "eleventy:dev": "cross-env NODE_ENV=development eleventy --serve",
+    "eleventy:preview": "cross-env NODE_ENV=production eleventy --serve",
     "eleventy:prod": "cross-env NODE_ENV=production eleventy",
     "webpack:dev": "cross-env NODE_ENV=development webpack --watch",
+    "webpack:preview": "cross-env NODE_ENV=production webpack --watch",
     "webpack:prod": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
