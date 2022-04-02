@@ -1,6 +1,13 @@
 # dependencies
 node_modules
 
+# production
+dist
+cache-manifest.json
+_src/_site/_includes/_partials/preload-styles.njk
+_src/_site/_includes/_partials/scripts.njk
+_src/_site/_includes/_partials/styles.njk
+
 # misc
 [Tt]humbs.db
 .DS_Store

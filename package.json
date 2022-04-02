@@ -4,11 +4,14 @@
   "description": "Front end for searchthesourcecode",
   "main": "index.js",
   "scripts": {
-    "build_css": "npx tailwindcss -i ./_src/styles/input.css -o ./_dist/styles/output.css",
-    "build_html": "cp ./_src/index.html ./_dist/index.html",
-    "watch_css": "npx tailwindcss -i ./_src/styles/input.css -o ./_dist/styles/output.css --watch",
-    "build": "npm run build_css",
-    "develop": "npm run watch_css"
+    "clean": "rimraf dist",
+    "start": "npm run dev",
+    "dev": "run-p webpack:dev eleventy:dev",
+    "build": "npm run clean && run-s webpack:prod eleventy:prod",
+    "eleventy:dev": "cross-env NODE_ENV=development eleventy --serve",
+    "eleventy:prod": "cross-env NODE_ENV=production eleventy",
+    "webpack:dev": "cross-env NODE_ENV=development webpack --watch",
+    "webpack:prod": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -22,9 +25,28 @@
   "homepage": "https://github.com/jevawin/searchthesourcecode.com#readme",
   "dependencies": {
     "@tailwindcss/forms": "^0.5.0",
-    "posthtml": "^0.16.6",
-    "posthtml-inline-assets": "^3.1.0",
-    "posthtml-minify-classnames": "^0.3.0",
     "tailwindcss": "^3.0.23"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@types/node": "^17.0.23",
+    "autoprefixer": "^10.4.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.7",
+    "html-minifier": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-loader": "^6.2.1",
+    "postcss-minify-selectors": "^5.2.0",
+    "postcss-sort-media-queries": "^4.2.1",
+    "terser-webpack-plugin": "^5.3.1",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.3",
+    "webpack": "^5.70.0",
+    "webpack-assets-manifest": "^5.1.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2"
   }
 }

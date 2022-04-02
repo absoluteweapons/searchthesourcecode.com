@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["./_dist/**/*.{html,js}"],
+  content: [
+    "./_src/_site/index.njk",
+    "./_src/scripts/**/*.ts",
+  ],
   theme: {
     extend: {
       screens: {
