@@ -1,6 +1,7 @@
 import updateResultsCount from "./updateResultsCount";
 
 function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
+  const resultsTable = document.querySelector("[data-results-table]");
   const resultsCount = document.querySelector('[data-results-count]');
   const button = document.querySelector('[type="submit"]');
   const endpoint = "https://search-the-source-code.herokuapp.com/";
@@ -53,6 +54,7 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
       if (button && resultsCount) {
         button.classList.add("pointer-events-none", "opacity-50");
         updateResultsCount(-1);
+        if (resultsTable) resultsTable.textContent = "";
       }
 
       fetch(url)
