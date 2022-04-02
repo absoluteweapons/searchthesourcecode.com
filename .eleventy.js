@@ -17,4 +17,5 @@ module.exports = config => {
     markdownTemplateEngine: 'njk',
     passthroughFileCopy: true
   };
+
 };

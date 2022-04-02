@@ -1,3 +1,5 @@
+import updateResultsCount from "./updateResultsCount";
+
 function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
   const resultsCount = document.querySelector('[data-results-count]');
   const button = document.querySelector('[type="submit"]');
@@ -50,7 +52,7 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
     if (!inputValidationErrorFound) {
       if (button && resultsCount) {
         button.classList.add("pointer-events-none", "opacity-50");
-        resultsCount.textContent = "Searching";
+        updateResultsCount(-1);
       }
 
       fetch(url)

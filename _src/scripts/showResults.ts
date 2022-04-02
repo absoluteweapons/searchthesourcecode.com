@@ -1,3 +1,5 @@
+import updateResultsCount from "./updateResultsCount";
+
 type ResultData = {
   url: string,
   hostless: string,
@@ -9,7 +11,6 @@ type ResultData = {
 function ShowResults(results: ResultData[]) {
   const holder = document.querySelector("[data-results-table]");
   const button = document.querySelector('[type="submit"]');
-  const resultsCount = document.querySelector('[data-results-count]');
 
   function renderMobileTable() {
     let output = "";
@@ -87,21 +88,15 @@ function ShowResults(results: ResultData[]) {
     }
   }
 
-  function renderZeroResults() {
-    if (holder) {
-      holder.innerHTML = `<h2>No results found</h2>`
-    }
-  }
-
   function init() {
     const hasNoResults = results.every(result => result.count === 0);
 
-    if (button && resultsCount) {
+    if (button) {
       button.classList.remove("pointer-events-none", "opacity-50");
-      resultsCount.textContent = `${results.length} results found`;
+      updateResultsCount(results.length);
     }
 
-    if (hasNoResults) return renderZeroResults();
+    if (hasNoResults) return updateResultsCount(0);
 
     if (window.innerWidth >= 500) return renderDesktopTable();
 
