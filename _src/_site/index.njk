@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-GB" dir="ltr">
+<html class="bg-white" lang="en-GB" dir="ltr">
   <head>
     <title>Search the Source Code</title>
 
@@ -19,8 +19,8 @@
     <link rel="icon" type="image/png" href="/favicons/favicon-48x48.png" sizes="48x48">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicons/favicon-192x192.png">
-    <link rel="icon" type="image/png"  sizes="256x256" href="/favicons/favicon-256x256.png">
-    <link rel="icon" type="image/png"  sizes="512x512" href="/favicons/favicon-512x512.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/favicons/favicon-256x256.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicons/favicon-512x512.png">
 
     <!-- APPLE ICONS -->
     <meta name="apple-mobile-web-app-title" content="Search Source">
@@ -41,7 +41,7 @@
     <meta name="msapplication-config" content="/browserconfig.xml">
 
     <!-- THEME COLOR -->
-    <meta name="theme-color"  content="#222222">
+    <meta name="theme-color" content="#222222">
 
     <!-- PRELOAD FILES -->
     {% include "_partials/preload-styles.njk" %}
@@ -53,36 +53,50 @@
     {% include "_partials/scripts.njk" %}
   </head>
 
-  <body class="font-mono">
-    <main class="relative container mx-auto px-4" id="main">
-      <section class="mb-6 text-center" aria-labelledby="search-heading">
-        <h1 class="text-4xl my-6" id="search-heading">Search the Source
+  <body class="font-sans font-['Avenir'] bg-yellow-800/[0.45] text-zinc-800">
+    <header aria-hidden="true" class="relative w-full p-3 flex justify-between items-center">
+      <!-- LOGO -->
+      <span class="block text-lg font-bold font-mono">&lt;/&gt;</span>
+      <!-- GITHUB -->
+      <span class="block">
+        <a href="https://github.com/jevawin/searchthesourcecode" class="inline-block">
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewbox="0 0 1024 1024" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="#1B1F23"/>
+          </svg>
+        </a>
+      </span>
+    </header>
+    <main class="relative mx-auto px-3 max-w-2xl" id="main">
+      <section class="mb-6 text-left" aria-labelledby="search-heading">
+        <h1 class="text-xl font-bold sm:text-4xl my-3" id="search-heading">Search the Source
           <span aria-hidden="true">&lt;</span>code<span aria-hidden="true">&gt;</span></h1>
-        <p class="text-sm">
+        <p class="text-md">
           Crawl and search the source code of a website for a particular code snippet.
         </p>
-        <p class="text-red-500 my-4 text-sm">
+        <p class="bg-sky-600/[0.25] border-sky-600/[0.3] border-[1px] text-sky-900 my-4 text-sm rounded p-2 sm:p-3 sm:inline-block">
           Alpha release. Expect bugs.
-          <a class="pb-1 border-b-2 border-red-500" href="https://github.com/jamiegoodwin/searchthesourcecode" target="_blank">It's on GitHub.</a >
+          <a class="border-b-2 border-sky-900" href="https://github.com/jevawin/searchthesourcecode" target="_blank">It's on GitHub.</a >
         </p>
       </section>
 
-      <form name="search" class="text-left mb-6 max-w-2xl mx-auto" data-component="form" novalidate="novalidate">
-        <div class="relative mb-6">
-          <label for="domain" class="inline-block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Domain to search</label>
-          <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-mono" autocomplete="off" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
+      <form name="search" class="text-left mb-6" data-component="form" novalidate="novalidate">
+        <div class="relative mb-2">
+          <label for="domain" class="inline-block mb-2 text-sm font-medium">Domain to search</label>
+          <input class="bg-zinc-900/[0.15] border border-zinc-900/[0.075] placeholder-zinc-800 text-sm rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg" autocomplete="off" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
 
-          <small class="absolute text-red-500 top-0 right-0" id="domainDescribe" aria-hidden="true" hidden="hidden">Please enter a valid domain</small>
+          <small class="invisible text-red-900 mt-3 text-xs" id="domainDescribe" aria-hidden="true" >
+            <span class="text-sm mr-1" aria-hidden="true">&#9888;</span>Please enter a valid domain</small>
         </div>
 
         <div class="relative mb-6">
-          <label for="query" class="inline-block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Code to search for</label>
-          <textarea class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-mono" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;"></textarea>
+          <label for="query" class="inline-block mb-2 text-sm font-medium">Code to search for</label>
+          <textarea class="bg-zinc-900/[0.15] border border-zinc-900/[0.075] placeholder-zinc-800 text-sm rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;"></textarea>
 
-          <small class="absolute text-red-500 top-0 right-0" id="queryDescribe" aria-hidden="true" hidden="hidden">Please enter the code you want to query</small>
+          <small class="invisible text-red-900 mt-3 text-xs" id="queryDescribe" aria-hidden="true">
+            <span class="text-sm mr-1" aria-hidden="true">&#9888;</span>Please enter the code you want to query</small>
         </div>
 
-        <button class="inline-flex justify-center items-center w-full relative bg-green-600 shadow-sm rounded px-4 py-2 text-white mb-2 motion-safe:transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 hov:after:absolute hov:after:[inset-block-end:0] hov:after:[inset-inline-start:0] hov:after:[inline-size:100%] hov:after:[block-size:100%] hov:after:bg-green-700 hov:after:rounded hov:after:transition-transform hov:after:duration-200 hov:after:-z-10 hov:hover:after:translate-x-0.5 hov:hover:after:translate-y-0.5 sm:w-auto" id="submit" type="submit">
+        <button class="inline-flex justify-center items-center w-full relative bg-zinc-900 shadow-sm rounded p-4 text-white mb-2 motion-safe:transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-600 hov:after:absolute hov:after:[inset-block-end:0] hov:after:[inset-inline-start:0] hov:after:[inline-size:100%] hov:after:[block-size:100%] hov:after:bg-zinc-600 hov:after:rounded hov:after:transition-transform hov:after:duration-200 hov:after:-z-10 hov:hover:after:translate-x-0.5 hov:hover:after:translate-y-0.5 sm:w-auto" id="submit" type="submit">
           <svg class="mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewbox="0 0 24 24" pointer-events="none" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z"/></svg>
           Search
         </button>
@@ -93,18 +107,18 @@
       <div data-results-table="data-results-table"></div>
     </main>
 
-    <footer class="text-center mt-6 mb-4 px-4">
+    <footer class="max-w-2xl mx-auto mt-6 mb-4 px-3 text-md">
       <p>
         Built with
-        <span aria-hidden="true" class="text-red-500 motion-safe:animate-bounce inline-block">&hearts;</span>
+        <span aria-hidden="true" class="text-red-900 text-lg motion-safe:animate-bounce inline-block">&hearts;</span>
         <span class="sr-only">love</span>
         by
         <a href="https://jamie.evawin.uk/" target="_blank">
-          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://en.gravatar.com/userimage/191194893/aae9a83120d84bc54587915f6bee323a.jpg?size=80" height="40" width="40" role="presentation"/>&nbsp;<span class="text-red-600 border-b-2 border-red-600">Jamie Evawin</span>
+          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://en.gravatar.com/userimage/191194893/aae9a83120d84bc54587915f6bee323a.jpg?size=80" height="40" width="40" role="presentation"/>&nbsp;<span class="text-red-900 border-b-2 border-red-900">Jamie Evawin</span>
         </a>
         and
         <a href="https://allexclapperton.co.uk/" target="_blank">
-          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://media-exp1.licdn.com/dms/image/C4D03AQGZnZ216DSXVw/profile-displayphoto-shrink_200_200/0/1605462306969?e=1653523200&v=beta&t=CiCyfwgA_cVZccKAZd6j5IfJcH7Hj5yZWqDKrIy4LO4" height="40" width="40" role="presentation"/>&nbsp;<span class="text-red-600 border-b-2 border-red-600">Alex Clapperton</span>
+          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://media-exp1.licdn.com/dms/image/C4D03AQGZnZ216DSXVw/profile-displayphoto-shrink_200_200/0/1605462306969?e=1653523200&v=beta&t=CiCyfwgA_cVZccKAZd6j5IfJcH7Hj5yZWqDKrIy4LO4" height="40" width="40" role="presentation"/>&nbsp;<span class="text-red-900 border-b-2 border-red-900">Alex Clapperton</span>
         </a>
       </p>
     </footer>
