@@ -78,7 +78,9 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
     if (!inputValidationErrorFound) {
       if (button && resultsCount) {
         button.classList.add("pointer-events-none", "opacity-50");
+
         updateResultsCount(-1);
+
         if (resultsTable) resultsTable.textContent = "";
       }
 
@@ -86,6 +88,11 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
         .then((response) => response.json())
         .then((data) => {
           import("./showResults").then((module) => module.default(data).init());
+        })
+        .catch((error) => {
+          updateResultsCount(-2);
+
+          console.error(error);
         });
     }
   }

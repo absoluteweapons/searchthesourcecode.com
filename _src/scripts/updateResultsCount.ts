@@ -3,6 +3,19 @@ function updateResultsCount(results: number) {
   const cross = `<svg class="fill-red-800 inline" width="16" height="16" viewBox="0 0 693 693" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M185 114.4a50 50 0 1 0-70.6 70.7l162.2 162.2-162.2 162.3a50 50 0 0 0 70.7 70.7l162.2-162.2 162.3 162.2a50 50 0 0 0 70.7-70.7L418.1 347.3l162.2-162.2a50 50 0 0 0-70.7-70.7L347.3 276.6 185.1 114.4Z"/></svg>`;
   const resultsCount = document.querySelector('[data-results-count]') as HTMLElement;
   resultsCount?.setAttribute("role", "alert");
+
+  if (results === -2) {
+    /* NO RESULTS: RED */
+    resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 mb-4 text-base rounded mt-2 box-border  border bg-red-300/[0.8] border-red-700/[0.8] text-red-900");
+    
+    resultsCount.innerHTML = `
+      Oops, there was an error. Please check you entered a valid domain.
+
+      <span>${cross}</span>
+    `;
+
+    return;
+  }
   
   if (results === -1) {
     /* SEARCHING: BLUE */
