@@ -25,7 +25,9 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
     // error message
     if (vIcon) vIcon.innerHTML = cross;
     if (vMessage) vMessage.innerHTML = `${inputId === "domain" ? "Domain" : "Code"} doesn't quite look right.`
+    
     input.nextElementSibling?.classList.remove("invisible");
+    input.nextElementSibling?.classList.add("inline-block");
 
     input.setAttribute("aria-describedby", `${inputId}Describe`);
   }
