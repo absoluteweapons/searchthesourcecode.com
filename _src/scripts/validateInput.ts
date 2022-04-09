@@ -7,27 +7,44 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
   const endpoint = "https://search-the-source-code.herokuapp.com/";
   const urlRegex =
     /^(http(s)?:\/\/)?(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-  const errorClasses = ["bg-pink-700/[0.15]", "border-pink-700/[0.2]"];
-  const successClasses = ["bg-lime-700/[0.15]", "border-lime-700/[0.2]"];
-  const defaultClasses = ["bg-zinc-900/[0.15]", "border-zinc-900/[0.075]"];
   let inputValidationErrorFound = false;
+  const errorClasses = ["text-red-800"];
+  const validClasses = ["text-green-900"];
+  const check = "&#x2714;";
+  const cross = "&#x2717;";
 
   function setInvalidInputState(input: HTMLInputElement | HTMLTextAreaElement) {
     const inputId = input.id;
+    const vIcon = input.nextElementSibling?.querySelector("[data-validation-icon") || false;
+    const vMessage = input.nextElementSibling?.querySelector("[data-validation-message") || false;
+
+    // error state
+    input.nextElementSibling?.classList.remove(...validClasses);
+    input.nextElementSibling?.classList.add(...errorClasses);
+
+    // error message
+    if (vIcon) vIcon.innerHTML = cross;
+    if (vMessage) vMessage.innerHTML = `${inputId === "domain" ? "Domain" : "Code"} doesn't quite look right.`
+    input.nextElementSibling?.classList.remove("invisible");
 
     input.setAttribute("aria-describedby", `${inputId}Describe`);
-    input.classList.add(...errorClasses);
-    input.classList.remove(...defaultClasses);
-    input.classList.remove(...successClasses);
-    input.nextElementSibling?.classList.remove("invisible");
   }
 
   function setValidInputState(input: HTMLInputElement | HTMLTextAreaElement) {
+    const inputId = input.id;
+    const vIcon = input.nextElementSibling?.querySelector("[data-validation-icon");
+    const vMessage = input.nextElementSibling?.querySelector("[data-validation-message");
+    
+    // valid state
+    input.nextElementSibling?.classList.remove(...errorClasses);
+    input.nextElementSibling?.classList.add(...validClasses);
+
+    // validation message
+    if (vIcon) vIcon.innerHTML = check;
+    if (vMessage) vMessage.innerHTML = `${inputId === "domain" ? "Domain" : "Code"} looks good.`
+    input.nextElementSibling?.classList.remove("invisible");
+
     input.removeAttribute("aria-describedby");
-    input.classList.remove(...errorClasses);
-    input.classList.remove(...defaultClasses);
-    input.classList.add(...successClasses);
-    input.nextElementSibling?.classList.add("invisible");
   }
 
   function validateInput(input: HTMLInputElement | HTMLTextAreaElement) {

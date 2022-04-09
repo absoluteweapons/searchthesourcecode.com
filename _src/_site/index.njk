@@ -53,8 +53,8 @@
     {% include "_partials/scripts.njk" %}
   </head>
 
-  <body class="font-sans font-['Avenir'] bg-yellow-800/[0.45] text-zinc-800">
-    <header aria-hidden="true" class="relative w-full p-3 flex justify-between items-center">
+  <body class="font-sans font-['Avenir'] bg-yellow-800/[0.35] text-zinc-800">
+    <header aria-hidden="true" class="relative w-full p-3 flex justify-between items-center mx-auto max-w-2xl">
       <!-- LOGO -->
       <span class="block text-lg font-bold font-mono">&lt;/&gt;</span>
       <!-- GITHUB -->
@@ -70,30 +70,35 @@
       <section class="mb-6 text-left" aria-labelledby="search-heading">
         <h1 class="text-xl font-bold sm:text-4xl my-3" id="search-heading">Search the Source
           <span aria-hidden="true">&lt;</span>code<span aria-hidden="true">&gt;</span></h1>
-        <p class="text-md">
+        <p class="text-lg">
           Crawl and search the source code of a website for a particular code snippet.
         </p>
-        <p class="bg-sky-600/[0.25] border-sky-600/[0.3] border-[1px] text-sky-900 my-4 text-sm rounded p-2 sm:p-3 sm:inline-block">
-          Alpha release. Expect bugs.
-          <a class="border-b-2 border-sky-900" href="https://github.com/jevawin/searchthesourcecode" target="_blank">It's on GitHub.</a >
+        <p class="bg-sky-300/[0.7] border-sky-700/[0.4] border text-blue-900 mt-4 text-md rounded p-2 sm:p-3 inline-block">
+          <span class="text-xl mr-1 align-middle" aria-hidden="true">&#9888;</span> Alpha release.
+          <a class="border-b-2 border-sky-900" href="https://github.com/jevawin/searchthesourcecode" target="_blank">It's on GitHub</a >
         </p>
       </section>
 
-      <form name="search" class="text-left mb-6" data-component="form" novalidate="novalidate">
+      <form name="search" class="text-left mb-4" data-component="form" novalidate="novalidate">
         <div class="relative mb-2">
           <label for="domain" class="inline-block mb-2 text-sm font-medium">Domain to search</label>
-          <input class="bg-zinc-900/[0.15] border border-zinc-900/[0.075] placeholder-zinc-800 text-sm rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg" autocomplete="off" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
+          <input class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-sm rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
+          <!-- TODO onblur background check domain exists and responds as part of validation -->
 
-          <small class="invisible text-red-900 mt-3 text-xs" id="domainDescribe" aria-hidden="true" >
-            <span class="text-sm mr-1" aria-hidden="true">&#9888;</span>Please enter a valid domain</small>
+          <small class="invisible mt-3 text-sm font-medium" id="domainDescribe" aria-hidden="true" >
+            <span class="text-base" aria-hidden="true" data-validation-icon></span>
+            <span data-validation-message>&nbsp;</span>
+          </small>
         </div>
 
         <div class="relative mb-6">
           <label for="query" class="inline-block mb-2 text-sm font-medium">Code to search for</label>
-          <textarea class="bg-zinc-900/[0.15] border border-zinc-900/[0.075] placeholder-zinc-800 text-sm rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;"></textarea>
+          <textarea class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-sm rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;"></textarea>
 
-          <small class="invisible text-red-900 mt-3 text-xs" id="queryDescribe" aria-hidden="true">
-            <span class="text-sm mr-1" aria-hidden="true">&#9888;</span>Please enter the code you want to query</small>
+          <small class="invisible mt-3 text-sm font-medium" id="queryDescribe" aria-hidden="true">
+            <span class="text-base" aria-hidden="true" data-validation-icon></span>
+            <span data-validation-message>&nbsp;</span>
+          </small>
         </div>
 
         <button class="inline-flex justify-center items-center w-full relative bg-zinc-900 shadow-sm rounded p-4 text-white mb-2 motion-safe:transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-600 hov:after:absolute hov:after:[inset-block-end:0] hov:after:[inset-inline-start:0] hov:after:[inline-size:100%] hov:after:[block-size:100%] hov:after:bg-zinc-600 hov:after:rounded hov:after:transition-transform hov:after:duration-200 hov:after:-z-10 hov:hover:after:translate-x-0.5 hov:hover:after:translate-y-0.5 sm:w-auto" id="submit" type="submit">
@@ -110,15 +115,15 @@
     <footer class="max-w-2xl mx-auto mt-6 mb-4 px-3 text-md">
       <p>
         Built with
-        <span aria-hidden="true" class="text-red-900 text-lg motion-safe:animate-bounce inline-block">&hearts;</span>
+        <span aria-hidden="true" class="text-red-800 text-lg motion-safe:animate-bounce inline-block">&hearts;</span>
         <span class="sr-only">love</span>
         by
         <a href="https://jamie.evawin.uk/" target="_blank">
-          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://en.gravatar.com/userimage/191194893/aae9a83120d84bc54587915f6bee323a.jpg?size=80" height="40" width="40" role="presentation"/>&nbsp;<span class="text-red-900 border-b-2 border-red-900">Jamie Evawin</span>
+          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://en.gravatar.com/userimage/191194893/aae9a83120d84bc54587915f6bee323a.jpg?size=80" height="40" width="40" role="presentation"/>&nbsp;<span class="text-red-800 border-b-2 border-red-800">Jamie Evawin</span>
         </a>
         and
         <a href="https://allexclapperton.co.uk/" target="_blank">
-          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://media-exp1.licdn.com/dms/image/C4D03AQGZnZ216DSXVw/profile-displayphoto-shrink_200_200/0/1605462306969?e=1653523200&v=beta&t=CiCyfwgA_cVZccKAZd6j5IfJcH7Hj5yZWqDKrIy4LO4" height="40" width="40" role="presentation"/>&nbsp;<span class="text-red-900 border-b-2 border-red-900">Alex Clapperton</span>
+          <img class="rounded-full shadow-sm inline h-5 w-auto" src="https://media-exp1.licdn.com/dms/image/C4D03AQGZnZ216DSXVw/profile-displayphoto-shrink_200_200/0/1605462306969?e=1653523200&v=beta&t=CiCyfwgA_cVZccKAZd6j5IfJcH7Hj5yZWqDKrIy4LO4" height="40" width="40" role="presentation"/>&nbsp;<span class="text-red-800 border-b-2 border-red-800">Alex Clapperton</span>.
         </a>
       </p>
     </footer>
