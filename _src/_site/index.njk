@@ -54,49 +54,57 @@
   </head>
 
   <body class="font-sans font-['Avenir'] bg-yellow-800/[0.35] text-zinc-800">
-    <header aria-hidden="true" class="relative w-full p-3 flex justify-between items-center mx-auto max-w-2xl">
+    <header class="relative w-full p-3 flex justify-between items-center mx-auto max-w-2xl">
       <!-- LOGO -->
-      <span class="block text-lg font-bold font-mono">&lt;/&gt;</span>
+      <span class="block text-lg font-bold font-mono" aria-hidden="true">&lt;/&gt;</span>
+
       <!-- GITHUB -->
-      <span class="block">
-        <a href="https://github.com/jevawin/searchthesourcecode" class="inline-block">
-          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewbox="0 0 1024 1024" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="#1B1F23"/>
-          </svg>
-        </a>
-      </span>
+      <a href="https://github.com/jevawin/searchthesourcecode" class="inline-block" aria-label="Search the source code GitHub.">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" pointer-events="none" aria-hidden="true"><path fill="#1b1f23" d="M16 .395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182.8.148 1.094-.347 1.094-.77 0-.381-.015-1.642-.022-2.979-4.452.968-5.391-1.888-5.391-1.888-.728-1.849-1.776-2.341-1.776-2.341-1.452-.993.11-.973.11-.973 1.606.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33.143-1.034.558-1.74 1.016-2.14-3.554-.404-7.29-1.777-7.29-7.907 0-1.747.625-3.174 1.649-4.295-.166-.403-.714-2.03.155-4.234 0 0 1.344-.43 4.401 1.64a15.353 15.353 0 0 1 4.005-.539c1.359.006 2.729.184 4.008.539 3.054-2.07 4.395-1.64 4.395-1.64.871 2.204.323 3.831.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895.574.497 1.085 1.47 1.085 2.963 0 2.141-.019 3.864-.019 4.391 0 .426.288.925 1.099.768C27.421 29.457 32 23.462 32 16.395c0-8.837-7.164-16-16-16z"></path></svg>
+      </a>
     </header>
+    
     <main class="relative mx-auto px-3 max-w-2xl" id="main">
       <section class="mb-6 text-left" aria-labelledby="search-heading">
-        <h1 class="text-xl font-bold sm:text-4xl my-3" id="search-heading">Search the Source
-          <span aria-hidden="true">&lt;</span>code<span aria-hidden="true">&gt;</span></h1>
+        <h1 class="text-xl font-bold sm:text-4xl my-3" id="search-heading">
+          Search the Source
+          <span aria-hidden="true">&lt;</span>code<span aria-hidden="true">&gt;</span>
+        </h1>
+
         <p class="text-lg">
           Crawl and search the source code of a website for a particular code snippet.
         </p>
-        <p class="bg-sky-300/[0.7] border-sky-700/[0.4] border text-blue-900 mt-4 text-md rounded p-2 sm:p-3 inline-block">
-          <span class="text-xl mr-1 align-middle" aria-hidden="true">&#9888;</span> Alpha release.
-          <a class="border-b-2 border-sky-900" href="https://github.com/jevawin/searchthesourcecode" target="_blank">It's on GitHub</a >
+        
+        <p class="flex justify-between items-center max-w-2xl mx-auto p-4 mb-4 text-base rounded mt-2 box-border border bg-yellow-300/[0.4] border-yellow-700/[0.8] text-yellow-900">
+          <span class="inline-block">
+            Alpha release.
+            <a class="border-b-2 border-yellow-900" href="https://github.com/jevawin/searchthesourcecode" target="_blank">It's on GitHub</a>
+          </span>
+          
+          <span class="inline-block text-2xl mr-1 align-middle" aria-hidden="true">
+            <svg class="fill-yellow-900" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 694 693" pointer-events="none" aria-hidden="true"><path fill-rule="evenodd" d="M684.305 558 402.847 70.5c-25.019-43.333-87.565-43.333-112.583 0L8.805 558c-25.018 43.333 6.255 97.5 56.292 97.5h562.916c50.037 0 81.311-54.167 56.292-97.5ZM331.833 94.5c6.543-11.333 22.901-11.333 29.445 0L642.736 582c6.543 11.333-1.636 25.5-14.723 25.5H65.097c-13.087 0-21.266-14.167-14.722-25.5L331.833 94.5Zm-4.218 304.167c2.178 14.155 4.433 31.344 6.767 51.567h23.8c2.178-20.223 4.355-37.412 6.533-51.567 2.178-14.311 4.2-26.678 6.067-37.1 2.022-10.422 3.811-19.367 5.366-26.833 1.712-7.467 3.112-14.467 4.2-21a219.402 219.402 0 0 0 2.8-20.3c.778-6.845 1.167-14.856 1.167-24.034 0-8.244-1.089-15.633-3.267-22.166-2.177-6.534-5.055-12.056-8.633-16.567-3.578-4.667-7.7-8.167-12.367-10.5-4.511-2.489-9.177-3.733-14-3.733-4.666 0-9.333 1.244-14 3.733-4.511 2.333-8.633 5.833-12.366 10.5-3.578 4.511-6.456 10.033-8.634 16.567-2.177 6.533-3.266 13.922-3.266 22.166 0 9.178.311 17.189.933 24.034a425.177 425.177 0 0 0 2.8 20.3c1.245 6.533 2.722 13.533 4.433 21 1.712 7.466 3.5 16.411 5.367 26.833 2.022 10.422 4.122 22.789 6.3 37.1Zm-11.2 95.9c-1.555 3.889-2.333 8.011-2.333 12.367 0 4.511.778 8.711 2.333 12.6 1.711 3.888 4.044 7.233 7 10.033 2.956 2.8 6.3 4.978 10.033 6.533 3.889 1.711 8.089 2.567 12.6 2.567 4.512 0 8.712-.856 12.6-2.567 4.045-1.555 7.467-3.733 10.267-6.533 2.956-2.8 5.289-6.145 7-10.033 1.711-3.889 2.567-8.089 2.567-12.6 0-4.356-.856-8.478-2.567-12.367-1.711-4.045-4.044-7.467-7-10.267-2.8-2.955-6.222-5.289-10.267-7-3.888-1.711-8.088-2.566-12.6-2.566-4.511 0-8.711.855-12.6 2.566-3.733 1.711-7.077 4.045-10.033 7-2.956 2.8-5.289 6.222-7 10.267Z" clip-rule="evenodd"/></svg>
+          </span>
         </p>
       </section>
 
       <form name="search" class="text-left mb-4" data-component="form" novalidate="novalidate">
         <div class="relative mb-2">
-          <label for="domain" class="inline-block mb-2 text-sm font-medium">Domain to search</label>
-          <input class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-sm rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
+          <label for="domain" class="inline-block mb-2 text-base font-medium">Domain to search</label>
+          <input class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-base rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
           <!-- TODO onblur background check domain exists and responds as part of validation -->
 
-          <small class="invisible mt-3 text-sm font-medium" id="domainDescribe" aria-hidden="true" >
-            <span class="text-base" aria-hidden="true" data-validation-icon></span>
+          <small class="invisible mt-3 text-base font-medium" id="domainDescribe" aria-hidden="true">
+            <span class="text-base" data-validation-icon></span>
             <span data-validation-message>&nbsp;</span>
           </small>
         </div>
 
-        <div class="relative mb-6">
-          <label for="query" class="inline-block mb-2 text-sm font-medium">Code to search for</label>
-          <textarea class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-sm rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;"></textarea>
+        <div class="relative mb-2">
+          <label for="query" class="inline-block mb-2 text-base font-medium">Code to search for</label>
+          <textarea class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-base rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;"></textarea>
 
-          <small class="invisible mt-3 text-sm font-medium" id="queryDescribe" aria-hidden="true">
-            <span class="text-base" aria-hidden="true" data-validation-icon></span>
+          <small class="invisible mt-3 text-base font-medium" id="queryDescribe" aria-hidden="true">
+            <span class="text-base" data-validation-icon></span>
             <span data-validation-message>&nbsp;</span>
           </small>
         </div>
