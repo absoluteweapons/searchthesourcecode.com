@@ -2,6 +2,7 @@
     "name": "Search the Source Code",
     "short_name": "Search Source",
     "description": "Crawl and search the source code of a website for a particular code snippet.",
+    "id": "/?id=homescreen",
     "start_url": "/?id=homescreen",
     "theme_color": "#27272a",
     "background_color": "#27272a",

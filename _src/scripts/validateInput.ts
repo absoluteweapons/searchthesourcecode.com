@@ -10,8 +10,8 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
   let inputValidationErrorFound = false;
   const errorClasses = ["text-red-800"];
   const validClasses = ["text-green-900"];
-  const check = "&#x2714;";
-  const cross = "&#x2717;";
+  const check = `<svg class="fill-green-900 inline" width="18" height="18" viewBox="0 0 693 693" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M672.4 113.4a48.5 48.5 0 0 0-69 0L242 475.4 90 323a49.6 49.6 0 0 0-68.9 71.3l186.4 186.3a48.5 48.5 0 0 0 68.9 0l396-396a48.5 48.5 0 0 0 0-71.2Z"/></svg>`;
+  const cross = `<svg class="fill-red-800 inline" width="16" height="16" viewBox="0 0 693 693" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M185 114.4a50 50 0 1 0-70.6 70.7l162.2 162.2-162.2 162.3a50 50 0 0 0 70.7 70.7l162.2-162.2 162.3 162.2a50 50 0 0 0 70.7-70.7L418.1 347.3l162.2-162.2a50 50 0 0 0-70.7-70.7L347.3 276.6 185.1 114.4Z"/></svg>`;
 
   function setInvalidInputState(input: HTMLInputElement | HTMLTextAreaElement) {
     const inputId = input.id;
