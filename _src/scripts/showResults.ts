@@ -18,39 +18,37 @@ function ShowResults(results: ResultData[]) {
     results.forEach((result) => {
       if (result.count > 0) {
         output += `
-          <tr>
-            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">Matches</th>
-            <td class="p-2">${result.count}</td>
-          </tr>
-          <tr class="bg-white border-b border-gray-200">
-            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">URL</th>
-            <td class="p-2">
-              <a href="${result.url}" target="_blank" class="text-blue-600">${result.hostless}</a>
-            </td>
-          </tr>
-          <tr class="bg-white border-b border-gray-200">
-            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">Snippet</th>
-            <td class="p-2">
-               <code class="block whitespace-normal break-all">
-                ${result.snippet.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;")}}
-              </code>
-            </td>
-          </tr>
+        <div class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto mb-4">
+          <table class="w-full text-sm text-left text-gray-500">            
+            <tbody>
+              <tr class="bg-white border-b border-gray-200">
+                <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">Matches</th>
+                <td class="p-2">${result.count}</td>
+              </tr>
+              <tr class="bg-white border-b border-gray-200">
+                <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">URL</th>
+                <td class="p-2">
+                  <a href="${result.url}" target="_blank" class="text-blue-600">${result.hostless}</a>
+                </td>
+              </tr>
+              <tr class="bg-white border-b border-gray-200">
+                <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">Snippet</th>
+                <td class="p-2">
+                  <code class="block whitespace-normal break-all">
+                    ${result.snippet.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;")}}
+                  </code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         `;
       }
     });
 
 
     if (holder) {
-      holder.innerHTML = `
-        <div class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto">
-          <table class="w-full text-sm text-left text-gray-500">            
-            <tbody>
-              ${output}
-            </tbody>
-          </table>
-        </div>
-      `;
+      holder.innerHTML = output;
     }
   }
 
