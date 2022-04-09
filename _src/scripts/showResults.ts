@@ -19,13 +19,21 @@ function ShowResults(results: ResultData[]) {
       if (result.count > 0) {
         output += `
           <tr>
-            <th class="px-4 py-2 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">Matches</th>
-            <td class="px-4 py-2">${result.count}</td>
+            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">Matches</th>
+            <td class="p-2">${result.count}</td>
           </tr>
           <tr class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-            <th class="px-4 py-2 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">URL</th>
-            <td class="px-4 py-2">
+            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">URL</th>
+            <td class="p-2">
               <a href="${result.url}" target="_blank" class="text-blue-600 dark:text-blue-500">${result.hostless}</a>
+            </td>
+          </tr>
+          <tr class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">Snippet</th>
+            <td class="p-2">
+               <code class="block whitespace-normal break-all">
+                ${result.snippet.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;")}}
+              </code>
             </td>
           </tr>
         `;
@@ -53,12 +61,12 @@ function ShowResults(results: ResultData[]) {
       if (result.count > 0) {
         output += `
           <tr class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-            <td class="px-6 py-4">${result.count}</td>
-            <td class="px-6 py-4">
+            <td class="p-4">${result.count}</td>
+            <td class="p-4">
               <a href="${result.url}" target="_blank" class="text-blue-600 dark:text-blue-500">${result.hostless}</a>
             </td>
-            <td class="px-6 py-4">
-              <code>
+            <td class="p-4">
+              <code class="block whitespace-normal break-all">
                 ${result.snippet.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;")}}
               </code>
             </td>
@@ -73,9 +81,9 @@ function ShowResults(results: ResultData[]) {
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th class="px-6 py-3">Matches</th>
-                <th class="px-6 py-3">URL</th>
-                <th class="px-6 py-3">Snippet</th>
+                <th class="p-4">Matches</th>
+                <th class="p-4">URL</th>
+                <th class="p-4">Snippet</th>
               </tr>
             </thead>
             

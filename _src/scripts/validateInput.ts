@@ -15,8 +15,8 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
 
   function setInvalidInputState(input: HTMLInputElement | HTMLTextAreaElement) {
     const inputId = input.id;
-    const vIcon = input.nextElementSibling?.querySelector("[data-validation-icon") || false;
-    const vMessage = input.nextElementSibling?.querySelector("[data-validation-message") || false;
+    const vIcon = input.nextElementSibling?.querySelector("[data-validation-icon]") || false;
+    const vMessage = input.nextElementSibling?.querySelector("[data-validation-message]") || false;
 
     // error state
     input.nextElementSibling?.classList.remove(...validClasses);
@@ -27,15 +27,14 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
     if (vMessage) vMessage.innerHTML = `${inputId === "domain" ? "Domain" : "Code"} doesn't quite look right.`
     
     input.nextElementSibling?.classList.remove("invisible");
-    input.nextElementSibling?.classList.add("inline-block");
 
     input.setAttribute("aria-describedby", `${inputId}Describe`);
   }
 
   function setValidInputState(input: HTMLInputElement | HTMLTextAreaElement) {
     const inputId = input.id;
-    const vIcon = input.nextElementSibling?.querySelector("[data-validation-icon");
-    const vMessage = input.nextElementSibling?.querySelector("[data-validation-message");
+    const vIcon = input.nextElementSibling?.querySelector("[data-validation-icon]") || false;
+    const vMessage = input.nextElementSibling?.querySelector("[data-validation-message]") || false;
     
     // valid state
     input.nextElementSibling?.classList.remove(...errorClasses);

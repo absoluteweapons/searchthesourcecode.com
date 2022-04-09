@@ -93,19 +93,19 @@
           <input class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-base rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
           <!-- TODO onblur background check domain exists and responds as part of validation -->
 
-          <small class="invisible mt-1 text-base font-medium" id="domainDescribe" aria-hidden="true">
-            <span class="align-text-bottom" data-validation-icon></span>
-            <span data-validation-message>&nbsp;</span>
+          <small class="invisible mt-1 text-base font-medium inline-block" id="domainDescribe" aria-hidden="true">
+            <span class="align-text-bottom" data-validation-icon="data-validation-icon"></span>
+            <span data-validation-message="data-validation-message">&nbsp;</span>
           </small>
         </div>
 
         <div class="relative mb-2">
           <label for="query" class="inline-block mb-2 text-base font-medium">Code to search for</label>
-          <textarea class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-base rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &#13;&#10;&#13;&#10;&lt;!doctype html&gt;&#13;&#10;&#13;&#10;"></textarea>
-
-          <small class="invisible mt-1 text-base font-medium" id="queryDescribe" aria-hidden="true">
-            <span class="align-text-bottom" data-validation-icon></span>
-            <span data-validation-message>&nbsp;</span>
+          <textarea class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-base rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &lt;!doctype html&gt;"></textarea>
+          
+          <small class="invisible mt-1 text-base font-medium inline-block" id="queryDescribe" aria-hidden="true">
+            <span class="align-text-bottom" data-validation-icon="data-validation-icon"></span>
+            <span data-validation-message="data-validation-message">&nbsp;</span>
           </small>
         </div>
 
