@@ -19,17 +19,17 @@ function ShowResults(results: ResultData[]) {
       if (result.count > 0) {
         output += `
           <tr>
-            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">Matches</th>
+            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">Matches</th>
             <td class="p-2">${result.count}</td>
           </tr>
-          <tr class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">URL</th>
+          <tr class="bg-white border-b border-gray-200">
+            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">URL</th>
             <td class="p-2">
-              <a href="${result.url}" target="_blank" class="text-blue-600 dark:text-blue-500">${result.hostless}</a>
+              <a href="${result.url}" target="_blank" class="text-blue-600">${result.hostless}</a>
             </td>
           </tr>
-          <tr class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">Snippet</th>
+          <tr class="bg-white border-b border-gray-200">
+            <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">Snippet</th>
             <td class="p-2">
                <code class="block whitespace-normal break-all">
                 ${result.snippet.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;")}}
@@ -44,7 +44,7 @@ function ShowResults(results: ResultData[]) {
     if (holder) {
       holder.innerHTML = `
         <div class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto">
-          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">            
+          <table class="w-full text-sm text-left text-gray-500">            
             <tbody>
               ${output}
             </tbody>
@@ -60,10 +60,10 @@ function ShowResults(results: ResultData[]) {
     results.forEach((result: ResultData) => {
       if (result.count > 0) {
         output += `
-          <tr class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+          <tr class="bg-white border-b border-gray-200">
             <td class="p-4">${result.count}</td>
             <td class="p-4">
-              <a href="${result.url}" target="_blank" class="text-blue-600 dark:text-blue-500">${result.hostless}</a>
+              <a href="${result.url}" target="_blank" class="text-blue-600">${result.hostless}</a>
             </td>
             <td class="p-4">
               <code class="block whitespace-normal break-all">
@@ -78,8 +78,8 @@ function ShowResults(results: ResultData[]) {
     if (holder) {
       holder.innerHTML = `
         <div class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto">
-          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+          <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
               <tr>
                 <th class="p-4">Matches</th>
                 <th class="p-4">URL</th>
