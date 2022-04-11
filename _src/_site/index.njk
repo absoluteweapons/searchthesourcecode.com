@@ -90,7 +90,7 @@
       <form name="search" class="text-left mb-4" data-component="form" novalidate="novalidate">
         <div class="relative mb-2">
           <label for="domain" class="inline-block mb-2 text-base font-medium">Domain to search</label>
-          <input class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-base rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
+          <input class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-base rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocapitalize="off" spellcheck="false" type="url" name="domain" placeholder="e.g. searchthesourcecode.com" id="domain"/>
           <!-- TODO onblur background check domain exists and responds as part of validation -->
 
           <small class="invisible mt-1 text-base font-medium inline-block" id="domainDescribe" aria-hidden="true">
@@ -99,7 +99,7 @@
           </small>
         </div>
 
-        <div class="relative mb-2">
+        <div class="relative my-2">
           <label for="query" class="inline-block mb-2 text-base font-medium">Code to search for</label>
           <textarea class="bg-zinc-900/[0.15] border border-zinc-900/[0.5] placeholder-zinc-800 text-base rounded focus:ring-zinc-900 focus:border-zinc-900 block w-full p-4 font-mono sm:text-lg box-border" autocomplete="off" autocapitalize="off" spellcheck="false" name="query" rows="10" id="query" placeholder="e.g. &lt;!doctype html&gt;"></textarea>
 
@@ -109,13 +109,13 @@
           </small>
         </div>
 
-        <button class="inline-flex justify-center items-center w-full relative bg-zinc-900 shadow-sm rounded p-4 text-orange-200 font-medium mb-2 motion-safe:transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-600 hov:after:absolute hov:after:[inset-block-end:0] hov:after:[inset-inline-start:0] hov:after:[inline-size:100%] hov:after:[block-size:100%] hov:after:bg-zinc-600 hov:after:rounded hov:after:transition-transform hov:after:duration-200 hov:after:-z-10 hov:hover:after:translate-x-0.5 hov:hover:after:translate-y-0.5 sm:w-auto" id="submit" type="submit">
+        <button class="inline-flex justify-center items-center w-full relative bg-zinc-900 shadow-sm rounded py-4 px-8 text-orange-200 font-medium mb-2 motion-safe:transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-600 hov:after:absolute hov:after:[inset-block-end:0] hov:after:[inset-inline-start:0] hov:after:[inline-size:100%] hov:after:[block-size:100%] hov:after:bg-zinc-600 hov:after:rounded hov:after:transition-transform hov:after:duration-200 hov:after:-z-10 hov:hover:after:translate-x-0.5 hov:hover:after:translate-y-0.5 sm:w-auto" id="submit" type="submit">
           <svg class="mr-1 fill-orange-200" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewbox="0 0 24 24" pointer-events="none" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z"/></svg>
           Search
         </button>
       </form>
 
-      <span data-results-count class="hidden"></span>
+      <span class="hidden" data-results-count></span>
 
       <div data-results-table></div>
     </main>
