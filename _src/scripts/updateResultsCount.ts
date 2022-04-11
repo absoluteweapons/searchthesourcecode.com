@@ -8,6 +8,7 @@ function updateResultsCount(results: number) {
     /* NO RESULTS: RED */
     resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 mb-4 text-base rounded mt-2 box-border  border bg-red-300/[0.8] border-red-700/[0.8] text-red-900");
     
+    // TODO replace cross with something that doesn't look like close button
     resultsCount.innerHTML = `
       Oops, there was an error. Please check you entered a valid domain.
 

@@ -72,7 +72,7 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
   }
 
   function init() {
-    const url = `${endpoint}?domain=${domain.value}&search=${encodeURIComponent(query.value)}`;
+    const url = `${endpoint}?domain=${encodeURIComponent(domain.value)}&search=${encodeURIComponent(query.value)}`;
 
     validateInput(domain);
     validateInput(query);
