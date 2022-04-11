@@ -19,7 +19,7 @@ function ShowResults(results: ResultData[]) {
       if (result.count > 0) {
         output += `
         <div class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto mb-4">
-          <table class="w-full text-sm text-left text-gray-500">            
+          <table class="w-full text-sm text-left text-gray-500">
             <tbody>
               <tr class="bg-white border-b border-gray-200">
                 <th class="p-2 text-xs text-gray-700 uppercase bg-gray-100">Matches</th>
@@ -84,7 +84,7 @@ function ShowResults(results: ResultData[]) {
                 <th class="p-4">Snippet</th>
               </tr>
             </thead>
-            
+
             <tbody>
               ${output}
             </tbody>
@@ -98,8 +98,9 @@ function ShowResults(results: ResultData[]) {
     const hasNoResults = results.every(result => result.count === 0);
 
     if (button) {
+      const resultsLength = results.filter(result => result.count > 0).length;
       button.classList.remove("pointer-events-none", "opacity-50");
-      updateResultsCount(results.length);
+      updateResultsCount(resultsLength);
     }
 
     if (hasNoResults) return updateResultsCount(0);
