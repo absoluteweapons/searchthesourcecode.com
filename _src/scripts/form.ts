@@ -1,4 +1,3 @@
-// TODO allow searching headers as well
 function Form(form: HTMLFormElement) {
   const domain: HTMLInputElement | null = form.querySelector('[name="domain"]');
   const query: HTMLTextAreaElement | null = form.querySelector('[name="query"]');
