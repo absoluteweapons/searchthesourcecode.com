@@ -2,10 +2,7 @@ function Form(form: HTMLFormElement) {
   const domain: HTMLInputElement | null = form.querySelector('[name="domain"]');
   const query: HTMLTextAreaElement | null = form.querySelector('[name="query"]');
 
-  function runValidateInput(
-    module: typeof import('./validateInput'),
-    event: SubmitEvent
-  ) {
+  function runValidateInput(module: typeof import('./validateInput')) {
     const validateInput = module.default;
 
     if (!domain || !query) return;
@@ -16,7 +13,7 @@ function Form(form: HTMLFormElement) {
   function handleFormSubmit(event: SubmitEvent) {
     event.preventDefault();
 
-    import('./validateInput').then(module => runValidateInput(module, event));
+    import('./validateInput').then(runValidateInput);
   }
 
   function init() {
