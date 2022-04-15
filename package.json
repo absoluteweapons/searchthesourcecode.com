@@ -13,11 +13,11 @@
     "eleventy:local": "cross-env NODE_ENV=local eleventy --serve",
     "eleventy:dev": "cross-env NODE_ENV=development eleventy --serve",
     "eleventy:preview": "cross-env NODE_ENV=production eleventy --serve",
-    "eleventy:prod": "cross-env NODE_ENV=production eleventy",
+    "eleventy:prod": "eleventy",
     "webpack:local": "cross-env NODE_ENV=local webpack --watch",
     "webpack:dev": "cross-env NODE_ENV=development webpack --watch",
     "webpack:preview": "cross-env NODE_ENV=production webpack --watch",
-    "webpack:prod": "cross-env NODE_ENV=production webpack"
+    "webpack:prod": "webpack"
   },
   "repository": {
     "type": "git",
