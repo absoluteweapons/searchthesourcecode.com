@@ -20,8 +20,13 @@
     "baseUrl": ".",
     "outDir": "",
     "paths": {
-      "Src/*": ["_src/*"]
-    }
+      "Src/*": [
+        "_src/*"
+      ]
+    },
+    "types": [
+      "node"
+    ]
   },
   "include": [
     "_src"
