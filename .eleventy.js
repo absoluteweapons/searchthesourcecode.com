@@ -7,6 +7,7 @@ module.exports = config => {
 
   // favicon
   config.addPassthroughCopy({ '_src/favicons': 'favicons' });
+  config.addPassthroughCopy({ '_src/images': 'images' });
   config.addPassthroughCopy({ '_src/site.webmanifest': 'site.webmanifest' });
   config.addPassthroughCopy({ '_src/browserconfig.xml': 'browserconfig.xml' });
 
