@@ -6,12 +6,15 @@
   "scripts": {
     "clean": "rimraf dist",
     "start": "npm run dev",
+    "local": "run-p webpack:local eleventy:local",
     "dev": "run-p webpack:dev eleventy:dev",
     "preview": "npm run clean && run-p webpack:preview eleventy:preview",
     "build": "npm run clean && run-s webpack:prod eleventy:prod",
+    "eleventy:local": "cross-env NODE_ENV=local eleventy --serve",
     "eleventy:dev": "cross-env NODE_ENV=development eleventy --serve",
     "eleventy:preview": "cross-env NODE_ENV=production eleventy --serve",
     "eleventy:prod": "cross-env NODE_ENV=production eleventy",
+    "webpack:local": "cross-env NODE_ENV=local webpack --watch",
     "webpack:dev": "cross-env NODE_ENV=development webpack --watch",
     "webpack:preview": "cross-env NODE_ENV=production webpack --watch",
     "webpack:prod": "cross-env NODE_ENV=production webpack"
@@ -39,6 +42,7 @@
   "homepage": "https://github.com/jevawin/searchthesourcecode.com#readme",
   "dependencies": {
     "@tailwindcss/forms": "^0.5.0",
+    "dotenv-webpack": "^7.1.0",
     "prismjs": "^1.27.0",
     "tailwindcss": "^3.0.23"
   },

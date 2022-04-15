@@ -4,7 +4,10 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
   const resultsTable = document.querySelector("[data-results-table]");
   const resultsCount = document.querySelector("[data-results-count]");
   const button = document.querySelector('[type="submit"]');
-  const endpoint = "https://search-the-source-code.herokuapp.com/";
+  const env = process.env.NODE_ENV;
+  let endpoint = "https://search-the-source-code-dev.herokuapp.com/";
+  if (env === "production") endpoint = "https://search-the-source-code.herokuapp.com/";
+  if (env === "local") endpoint = "http://localhost:8888/";
   const urlRegex = /^(http(s)?:\/\/)?(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
   const errorClasses = ["text-red-800"];
   const validClasses = ["text-green-900"];
