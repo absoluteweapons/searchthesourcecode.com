@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 @layer utilities {
+  .sl {
+    @apply absolute bg-zinc-900 text-orange-200 p-2 font-medium whitespace-nowrap border-0 text-center top-0 left-0 z-50 lg:top-2 lg:left-2;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+  }
+
+  .sl:focus {
+    @apply whitespace-normal w-full h-auto lg:w-auto;
+    clip: auto;
+  }
+
   :not(pre) td > code[class*=language-] {
     @apply p-2;
   }
