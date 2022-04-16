@@ -1,9 +1,11 @@
+const glob = require("glob").sync;
 const path = require("path");
 const webpack = require("webpack");
 const ManifestPlugin = require("webpack-assets-manifest");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 function Bundle() {
@@ -60,6 +62,7 @@ function Bundle() {
       ),
       template: path.resolve(__dirname, "_templates", "styles.njk"),
     }),
+    new SpriteLoaderPlugin({ plainSprite: true }),
     new webpack.LoaderOptionsPlugin({
       debug: true,
     }),
@@ -75,6 +78,7 @@ function Bundle() {
     entry: {
       common: path.resolve(__dirname, "_src/scripts/main.ts"),
       main: path.resolve(__dirname, "_src/styles/tailwind.css"),
+      sprite: glob('./_src/icons/*.svg'),
     },
 
     output: {
@@ -111,6 +115,15 @@ function Bundle() {
             },
             { loader: "postcss-loader" },
           ],
+        },
+        {
+          test: /\.svg$/,
+          loader: 'svg-sprite-loader',
+          include: path.resolve(__dirname, '_src/icons'),
+          options: {
+            extract: true,
+            spriteFilename: 'icons/sprite.svg'
+          },
         },
       ],
     },
