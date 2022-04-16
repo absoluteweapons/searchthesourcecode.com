@@ -1,6 +1,6 @@
 # dependencies
 node_modules
-_partials
+_src/_site/_includes/_partials
 
 # production
 dist
