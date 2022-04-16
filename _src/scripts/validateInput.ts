@@ -105,14 +105,18 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        import("./showResults").then(module => module.default(data).init());
-        enableSubmitButton();
+        if (!data?.error) {
+          import("./showResults").then(module => module.default(data).init());
+        } else {
+          updateResultsCount(-3, data.error);
+        }
+        enableSubmitButton();          
       })
       .catch((error) => {
         updateResultsCount(-2);
         enableSubmitButton();
 
-        console.error(error);
+        console.log(error);
       });
   }
 
