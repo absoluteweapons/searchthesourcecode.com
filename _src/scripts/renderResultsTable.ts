@@ -10,7 +10,7 @@ function RenderResultsTable(results: ResultData[]) {
     const codeSnippet: any = Prism.highlight(snippet, Prism.languages.html, 'html');
 
     return `
-      <div class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto mb-2 last:mb-0">
+      <li class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto mb-2 last:mb-0 lg:mb-0">
         <table class="w-full text-sm text-left text-gray-500">
           <tbody>
             <tr class="bg-white border-b border-gray-200">
@@ -35,7 +35,7 @@ function RenderResultsTable(results: ResultData[]) {
             </tr>
           </tbody>
         </table>
-      </div>
+      </li>
     `
   }
 
@@ -47,7 +47,10 @@ function RenderResultsTable(results: ResultData[]) {
     }
 
     if (resultsContainer) {
-      resultsContainer.innerHTML = results.map(renderTable).join('');
+      resultsContainer.setAttribute('aria-label', 'Search the source code results');
+      resultsContainer.innerHTML = `
+        <ul class="lg:grid lg:grid-cols-2 lg:gap-8">${results.map(renderTable).join('')}</ul>
+      `;
     }
   }
 

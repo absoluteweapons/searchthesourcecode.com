@@ -22,7 +22,7 @@ function updateResultsCount(results: number) {
 
   if (results === -2) {
     /* NO RESULTS: RED */
-    resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 mb-4 text-base rounded mt-2 box-border  border bg-red-300/[0.8] border-red-700/[0.8] text-red-900");
+    resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 text-base rounded mt-2 box-border  border bg-red-300/[0.8] border-red-700/[0.8] text-red-900");
 
     resultsCount.innerHTML = `
       Oops, there was an error. Please check you entered a valid domain.
@@ -35,7 +35,7 @@ function updateResultsCount(results: number) {
 
   if (results === -1) {
     /* SEARCHING: BLUE */
-    resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 mb-4 text-base rounded mt-2 box-border  border bg-sky-300/[0.8] border-sky-700/[0.8] text-blue-900");
+    resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 text-base rounded mt-2 box-border  border bg-sky-300/[0.8] border-sky-700/[0.8] text-blue-900");
     resultsCount.innerHTML = `
       Searching...
 
@@ -47,7 +47,7 @@ function updateResultsCount(results: number) {
 
   if (results === 0) {
     /* NO RESULTS: RED */
-    resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 mb-4 text-base rounded mt-2 box-border  border bg-red-300/[0.8] border-red-700/[0.8] text-red-900");
+    resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 text-base rounded mt-2 box-border  border bg-red-300/[0.8] border-red-700/[0.8] text-red-900");
     resultsCount.innerHTML = `
       No results found
 
@@ -58,7 +58,7 @@ function updateResultsCount(results: number) {
   }
 
   /* RESULTS: GREEN */
-  resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 mb-4 text-base rounded mt-2 box-border  border bg-green-300/[0.8] border-green-700/[0.8] text-green-900");
+  resultsCount.setAttribute("class", "flex justify-between items-center max-w-2xl mx-auto p-4 text-base rounded mt-2 box-border  border bg-green-300/[0.8] border-green-700/[0.8] text-green-900");
   resultsCount.innerHTML = `
       ${results} results found
 
