@@ -8,9 +8,11 @@ function RenderResultsTable(results: ResultData[]) {
   function renderTable(result: ResultData) {
     const { count, hostless, snippet, url } = result;
     const codeSnippet: any = Prism.highlight(snippet, Prism.languages.html, 'html');
+    const isSingleResult = results.length === 1;
+    const colSpans = isSingleResult ? 'lg:col-span-full' : 'lg:col-span-1';
 
     return `
-      <li class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto mb-2 last:mb-0 lg:mb-0">
+      <li class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto mb-2 last:mb-0 lg:mb-0 ${colSpans}">
         <table class="w-full text-sm text-left text-gray-500">
           <tbody>
             <tr class="bg-white border-b border-gray-200">
