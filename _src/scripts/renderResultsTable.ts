@@ -13,7 +13,7 @@ function RenderResultsTable(results: ResultData[]) {
 
     return `
       <li class="relative overflow-x-auto rounded border border-gray-200 max-w-5xl mx-auto mb-2 last:mb-0 lg:mb-0 ${colSpans}">
-        <table class="w-full text-sm text-left text-gray-500">
+        <table class="w-full h-full text-sm text-left text-gray-500">
           <tbody>
             <tr class="bg-white border-b border-gray-200">
               <th class="p-4 text-base text-gray-700 bg-gray-100">Matches</th>
