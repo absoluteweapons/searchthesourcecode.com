@@ -30,7 +30,7 @@ function RenderResultsTable(results: ResultData[]) {
             <tr class="bg-white border-b border-gray-200">
               <th class="p-4 text-base text-gray-700 bg-gray-100">Snippet</th>
               <td class="p-4 text-base">
-                <code class="block whitespace-normal break-all language-html">
+                <code class="block max-w-xl whitespace-normal break-all language-html">
                   ${codeSnippet}
                 </code>
               </td>
