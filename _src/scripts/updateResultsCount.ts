@@ -5,14 +5,14 @@ function updateResultsCount(results: number, status?: number) {
     </svg>
   `;
 
-  const cross = `
+  const stop = `
     <svg class="fill-red-800 inline" width="18" height="18" aria-hidden="true" pointer-events="none">
-      <use xlink:href="/icons/sprite.svg#cross"></use>
+      <use xlink:href="/icons/sprite.svg#stop"></use>
     </svg>
   `;
 
   const spinner = `
-    <svg class="mr-1 text-blue-200 animate-spin fill-blue-900" width="20" height="20" aria-hidden="true" pointer-events="none">
+    <svg class="mr-1 text-blue-200 animate-spin fill-blue-900" width="18" height="18" aria-hidden="true" pointer-events="none">
       <use xlink:href="/icons/sprite.svg#spinner"></use>
     </svg>
   `
@@ -27,7 +27,7 @@ function updateResultsCount(results: number, status?: number) {
     resultsCount.innerHTML = `
       <p>Oops, we received the following error from that domain: <strong class="font-bold">${status}</strong></p>
 
-      <span>${cross}</span>
+      <span>${stop}</span>
     `;
 
     return;
@@ -40,7 +40,7 @@ function updateResultsCount(results: number, status?: number) {
     resultsCount.innerHTML = `
       <p>Oops, there was an unknown error</p>
 
-      <span>${cross}</span>
+      <span>${stop}</span>
     `;
 
     return;
@@ -64,7 +64,7 @@ function updateResultsCount(results: number, status?: number) {
     resultsCount.innerHTML = `
       <p>No results found</p>
 
-      ${cross}
+      ${stop}
     `;
 
     return;
