@@ -116,14 +116,23 @@ function Bundle() {
             { loader: "postcss-loader" },
           ],
         },
+
         {
           test: /\.svg$/,
-          loader: 'svg-sprite-loader',
           include: path.resolve(__dirname, '_src/icons'),
-          options: {
-            extract: true,
-            spriteFilename: 'icons/sprite.svg'
-          },
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                extract: true,
+                spriteFilename: 'icons/sprite.svg'
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: plugin.svgo
+            },
+          ],
         },
       ],
     },

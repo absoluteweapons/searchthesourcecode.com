@@ -53,5 +53,65 @@
         "global_defs": {}
       }
     }
+  },
+  "svgo": {
+    "multipass": false,
+    "datauri": "base64",
+    "js2svg": {
+      "pretty": false,
+      "indent": "  "
+    },
+    "plugins": [
+      {
+        "name": "preset-default",
+        "params": {
+          "overrides": {
+            "removeViewBox": false,
+            "removeXMLNS": false,
+            "convertStyleToAttrs": false,
+            "removeRasterImages": false,
+            "cleanupListOfValues": false,
+            "reusePaths": false,
+            "removeDimensions": false
+          }
+        }
+      },
+      "removeDoctype",
+      "removeXMLProcInst",
+      "removeComments",
+      "removeMetadata",
+      "removeEditorsNSData",
+      "cleanupAttrs",
+      "mergeStyles",
+      "inlineStyles",
+      "minifyStyles",
+      "cleanupIDs",
+      "removeUselessDefs",
+      "cleanupNumericValues",
+      "convertColors",
+      "removeUnknownsAndDefaults",
+      "removeNonInheritableGroupAttrs",
+      "removeUselessStrokeAndFill",
+      "cleanupEnableBackground",
+      "removeHiddenElems",
+      "removeEmptyText",
+      "convertShapeToPath",
+      "convertEllipseToCircle",
+      "moveElemsAttrsToGroup",
+      "moveGroupAttrsToElems",
+      "collapseGroups",
+      "convertPathData",
+      "convertTransform",
+      "removeEmptyAttrs",
+      "removeEmptyContainers",
+      "mergePaths",
+      "removeUnusedNS",
+      "sortDefsChildren",
+      "removeDesc",
+      "sortAttrs",
+      "removeTitle",
+      "removeStyleElement",
+      "removeScriptElement"
+    ]
   }
 }
