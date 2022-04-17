@@ -13,13 +13,13 @@ function ValidateInput(domain: HTMLInputElement, query: HTMLTextAreaElement) {
   const validClasses = ["text-green-900"];
 
   const check = `
-    <svg class="fill-green-900 inline" width="18" height="18" aria-hidden="true" pointer-events="none">
+    <svg class="fill-green-900 inline" width="14" height="14" aria-hidden="true" pointer-events="none">
       <use xlink:href="/icons/sprite.svg#check"></use>
     </svg>
   `;
 
   const cross = `
-    <svg class="fill-red-800 inline" width="18" height="18" aria-hidden="true" pointer-events="none">
+    <svg class="fill-red-800 inline" width="14" height="14" aria-hidden="true" pointer-events="none">
       <use xlink:href="/icons/sprite.svg#cross"></use>
     </svg>
   `;
